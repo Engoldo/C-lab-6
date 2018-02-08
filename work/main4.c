@@ -11,13 +11,14 @@ int main()
 {
 	int j = 0;
 	ll i = 0, rec = 0, usul = 0;
-	int N = 0;
+	int N = 2;
 	int M;
 	time_t start, end;
 	double seconds_usul = 0.0, seconds_rec = 0.0;
 	printf("Enter random stepen: \n");
 	scanf("%i", &M);
-	N = pow(2.0, M);
+	for(i=1;i<M;i++)
+	N *=2;
 	char *p = (char*)malloc(N * sizeof(char));
 	while (p == NULL)
 	{
