@@ -71,7 +71,7 @@ char partition(char *buf, char *expr1, char *expr2)
 int eval(char *buf)
 {
 	char oper;
-	char expr1[N] = { 0 }, expr2[N] = { 0 };
+	char expr1[SIZE] = { 0 }, expr2[SIZE] = { 0 };
 	if (*buf != '(')
 		return atoi(buf);
 	else
