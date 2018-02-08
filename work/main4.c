@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-typedef long long ll;
+typedef long long int ll;
 #include<math.h>
 #include<stdlib.h>
 #include<time.h>
@@ -10,19 +10,21 @@ typedef long long ll;
 int main()
 {
 	int j = 0;
-	ll i = 0,rec = 0, usul = 0,N=0;
-	int M=0;
+	ll i = 0, rec = 0, usul = 0;
+	int N = 0;
+	int M;
 	time_t start, end;
 	double seconds_usul = 0.0, seconds_rec = 0.0;
-	printf("Enter random stepen: ");
+	printf("Enter random stepen: \n");
 	scanf("%i", &M);
-	N = pow(2, M);
+	N = pow(2.0, M);
 	char *p = (char*)malloc(N * sizeof(char));
 	while (p == NULL)
 	{
 		printf("Error. Enter less number:");
+		fflush(stdin);
 		scanf("%i", &M);
-		N = pow(2, M);
+		N = pow(2.0, M);
 		char *p =(char*) malloc(N * sizeof(char));
 	}
 
@@ -42,7 +44,7 @@ int main()
 	time(&end);
 		seconds_usul = difftime(end, start);
 		printf("The time usually: %00.f seconds\n", seconds_usul);
-		printf("check diferent between methods = %lli\n", rec- usul);
+		printf("rec = %I64i, usually = %I64i  ,check diferent between methods = %I64i\n",rec,usul, rec- usul);
 		double difernt = (seconds_rec / seconds_usul) * 100;
 		printf("diferent between methods = %0.f%%\n", difernt);
 		free(p);
