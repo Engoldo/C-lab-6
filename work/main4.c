@@ -11,23 +11,20 @@ int main()
 {
 	int j = 0;
 	ll i = 0, rec = 0, usul = 0;
-	int N = 2;
+	int N = 1;
 	int M;
 	time_t start, end;
 	double seconds_usul = 0.0, seconds_rec = 0.0;
-	printf("Enter random stepen: \n");
-	scanf("%i", &M);
-	for(i=1;i<M;i++)
-	N *=2;
-	char *p = (char*)malloc(N * sizeof(char));
-	while (p == NULL)
-	{
-		printf("Error. Enter less number:");
+	char *p;
+	
+	do{
+		printf("Enter random stepen: \n");
 		fflush(stdin);
 		scanf("%i", &M);
-		N = pow(2.0, M);
-		char *p =(char*) malloc(N * sizeof(char));
-	}
+		for (i=0;i<M;i++)
+			N *= 2;
+		p =(char*) malloc(N * sizeof(char));
+	} while (p == NULL);
 
 	for (i=0;i<N;i++)
 		p[i]= rand() % 10+'0';
