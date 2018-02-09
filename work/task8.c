@@ -110,7 +110,7 @@ char *eval_recur(char *buf)// -функци€, вычисл€юща€ строку, содержащуюс€ в buf
 	static int  count = 0;
 
 	if (*buf == '\0')
-		return atoi(buf);
+		return buf;
 
 	if (*buf == ')'&& flag == OUT)
 	{
