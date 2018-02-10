@@ -7,6 +7,83 @@
 #define IN 1
 #define OUT 0
 int flag = OUT;
+char*addExpr(char *p, int bracket)
+{
+	int i = 0;
+	int len = strlen(p);
+	char op = '+';
+	char expr2 = '0';
+	char*buf = (char*)calloc(len + 2, sizeof(char));// add 2 char for expr2=0 and op='+'
+	strcpy(buf, p);
+	
+	for (i = len+2;i>bracket ;i--)
+		buf[i] = buf[i-2];
+
+	buf[i++] = op;
+	buf[i] = expr2;
+
+	p=buf;//pass new string
+	//p = (char*)calloc(len + 2, sizeof(char));// add 2 char for expr2=0 and op='+'
+	//strcpy(p, buf);
+	return p;
+}
+
+char* checkexpr(char*in,int *nomERROR)
+{
+	char* out;
+	int len = strlen(in);
+	int brac1 = 0;
+	int brac2 = 0;
+	int i = 0;
+	int j = 0;
+	int flagexpr1 = 0;//need for check expr1 if true then '1'
+	int flagexpr2 = 0;//need for check expr2 if true then '1'
+	int flagop = 0;
+	int flagcheck = 0;
+	out = (char*)calloc(len, sizeof(char));
+	strcpy(out, in);
+	
+	for (i = 0;i < len;i++)
+	{
+		if (out[i] == '(')brac1++;
+		if (out[i] == ')')brac2++;
+	}
+	if (brac1 - brac2 != 0)
+	{return in;
+	printf("%s/n", "ERROR input. YOU need check quantity of bracket");
+	}
+	for (i = 0;i < len;i++)
+	{
+		if (out[i] == ')')
+		{
+			 flagexpr1 = 0;//need for check expr1 if true then '1'
+			 flagexpr2 = 0;//need for check expr2 if true then '1'
+			 flagop = 0;//need for check operator if true then '1'
+			for (j = i-1;out[j] != '(';j--)
+			{
+				if(isnumb(out+j) == 0 && flagexpr1 == 1)
+					flagop=1;// condition op done
+				if (isnumb(out+j)!=0 && flagop==0)
+					flagexpr1 = 1;// condition expr1 done
+				if (isnumb(out+j) != 0 && flagexpr1 == 1&& flagop==1)
+					flagexpr2 = 1;// condition op done
+			}
+			if (flagexpr1 == 1 && flagexpr2 == 0&&flagop == 0)
+			{
+				out=addExpr(out,i);// check a lenght of function
+				len=strlen(out);
+				i = 0;// need for check with begine
+				flagcheck++;
+			}
+		}
+	}
+	in = out;//change place
+	
+	if (flagcheck>0)
+		*nomERROR= 2;//fix done
+
+	return in;
+}
 void cleangap(char *p)
 {
 	int i = 0;
@@ -40,12 +117,17 @@ char *int2str(char *buf,  int value)// recursia
 		i = 0;
 		if (*buf == '-')
 			i = 1;// need for collect the negative number
+		buf[i++] = value % 10 + '0';
 		return buf;
 	}
 	else
 		int2str(buf, (value / 10));
-	
-	buf[i++] = value % 10 + '0';
+	if (value)
+	{
+		if (buf[0] == '0')i = i-1;
+		buf[i++] = value % 10 + '0';
+	}
+
 	return buf;
 
 }
@@ -96,8 +178,9 @@ char partition(char *buf, char *expr1, char *expr2)
 	while(isnumb(buf))// if  number then will be '1' else '0'
 		{	
 		*expr2++ = *buf;
-		*buf = ' ';
+		*buf++ = ' ';
 		}
+	*--buf;
 	return op;
 }
 char *eval_recur(char *buf)// -функци€, вычисл€юща€ строку, содержащуюс€ в buf
@@ -137,14 +220,20 @@ char *eval_recur(char *buf)// -функци€, вычисл€юща€ строку, содержащуюс€ в buf
 }
 int eval(char *p)
 {
+	char *error[] = { "",
+	                 "ERROR input. YOU need check quantity of bracket   " ,
+	                 "FIX done"};
+		int nom = 0;				
 	cleangap(p);// for 
 	char *buf = (char*)malloc(strlen(p) * sizeof(char));
 	strcpy(buf, p);
+	buf = checkexpr(p,&nom);// need for standart
+		
 
 	do {
 		eval_recur(buf);
 
-	} while (strlen(buf) > 2);
+	} while (isnumb(buf)==0);
 
 	return atoi(buf);
 }

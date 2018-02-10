@@ -11,10 +11,21 @@ int main(int argc, char *argv[])
 		printf("ERROR data, input again...");
 		return 1;
 	}
-	//char p[] = "(((7-1)/(4+2))-9)";
 
 	printf("%i\n", eval(argv[1]));
+	
+/*int main()
+{
+	int argc = 2;
+	if (argc == 1)
+	{
+		printf("ERROR data, input again...");
+		return 1;
+	}
+	char *p; 
+	p = "(2+(22))" ;
 
+ 	printf("%i\n", eval(p));*/
 	return 0;
 }
 /*

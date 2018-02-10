@@ -11,3 +11,6 @@ int isnumb(char *arr);
 int makeexpr(char op, char *expr1, char *expr2);
 
 char *eval_recur(char *buf);// -функци€, вычисл€юща€ строку, содержащуюс€ в buf
+char* checkexpr(char*in, int *nomERROR);//first check input expr
+
+char* addExpr(char *p, int bracket);// if need add expr2;
