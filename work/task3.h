@@ -1,2 +1,2 @@
 
-char *int2str(const char *buf, unsigned int value);
+char *int2str(char *buf, unsigned int value);
