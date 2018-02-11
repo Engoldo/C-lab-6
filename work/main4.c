@@ -12,17 +12,16 @@ int main()
 	int size = (int)pow(2.0, M);
 	srand(time(0));
 	char *arr = (char*)malloc(sizeof(char)*size);
-	//int *arr = (int*)malloc(sizeof(int)*size);
 	while (i < size)
 	{
-		arr[i] = rand() % 255;
+		arr[i] = rand() % 128;
 		//printf("%d ", arr[i]);
 		i++;
 	}
 
 	t1 = clock();
 	while (clock() < (t1 + CLOCKS_PER_SEC));
-	printf("\nSumC - %lu\n", sumC(arr, size-1));
+	printf("\nSumC - %lu\n", sumC(arr, size));
 	t2 = clock();
 	int sec = (t2 - t1) / CLOCKS_PER_SEC;
 	int ms = (t2 - t1) % CLOCKS_PER_SEC;
@@ -30,7 +29,7 @@ int main()
 
 	t1 = clock();
 	while (clock() < (t1 + CLOCKS_PER_SEC));
-	printf("\nSumR - %lu\n", sumR(arr, size-1));
+	printf("\nSumR - %lu\n", sumR(arr, size));
 	t2 = clock();
 	sec = (t2 - t1) / CLOCKS_PER_SEC;
 	ms = (t2 - t1 ) % CLOCKS_PER_SEC;

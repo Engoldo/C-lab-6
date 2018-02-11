@@ -1,11 +1,12 @@
 #include "task2.h"
 #include <stdio.h>
 
-unsigned int seqCollatz(unsigned int *maxlen)
+unsigned long long seqCollatz(unsigned int *maxlen)
 {
+	*maxlen = 0;
 	unsigned int len;
-	unsigned int number;
-	for (unsigned int i = 2; i <= MAX; i++)
+	unsigned long long number;
+	for (unsigned long long i = 2; i <= MAX; i++)
 	{
 		len=collatz(i);
 		if (collatz(0))
@@ -21,7 +22,7 @@ unsigned int seqCollatz(unsigned int *maxlen)
 
 
 
-unsigned int collatz(unsigned long num)
+unsigned int collatz(unsigned long long num)
 {
 	static unsigned int count = 0;
 	if (num == 0)
@@ -50,3 +51,4 @@ unsigned int collatz(unsigned long num)
 		return collatz(3 * num + 1);
 	}
 }
+

@@ -5,9 +5,10 @@
 int main()
 {
 	unsigned int maxlen=0;
-	unsigned int num;
+	unsigned long long num;
 	num = seqCollatz(&maxlen);
-	printf("Number - %lu, length - %lu\n", num, maxlen);
+	printf("Number - %llu\n", num);
+	printf("length - %u\n", maxlen);
 	
 	return 0;
 }
