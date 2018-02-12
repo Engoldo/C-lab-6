@@ -3,29 +3,29 @@
 #include <stdlib.h>
 #include "task6.h"
 
-ull fib1(int N)
+ull fib1(int X)
 {
-	if (N == 1 || N == 2)
+	if (X == 1 || X == 2)
 		return 1;
 	else
-		return fib1(N - 2) + fib1(N - 1);
+		return fib1(X - 2) + fib1(X - 1);
 }
 
-ull fibIter(int N, ull *arr)
+ull fibIter(int X, ull *arr)
 {
-	if (arr[N] == 0)
+	if (arr[X] == 0)
 	{
-		if (N == 1 || N == 2)
-			arr[N] = 1;
+		if (X == 1 || X == 2)
+			arr[X] = 1;
 		else
-			arr[N] = fibIter(N - 1, arr) + fibIter(N - 2, arr);
+			arr[X] = fibIter(X - 1, arr) + fibIter(X - 2, arr);
 	}
 
-	return arr[N];
+	return arr[X];
 }
 
-ull fib2(int N)
+ull fib2(int X)
 {
 	ull arr[SIZE_6] = { 0 };
-	return fibIter(N, arr);
+	return fibIter(X, arr);
 }
