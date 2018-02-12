@@ -3,7 +3,7 @@
 #include <math.h>
 #include "task1.h"
 
-void drawFractal(char (*arr)[N], int x, int y, int size)
+void drawFractal(char (*arr)[N1], int x, int y, int size)
 {
 	if (size == 0)
 	{
@@ -20,13 +20,13 @@ void drawFractal(char (*arr)[N], int x, int y, int size)
 	}
 }
 
-void printMatrix(char (*arr)[N])
+void printMatrix(char (*arr)[N1])
 {
-	for (int i = 0; i < N; i++)
+	for (int i = 0; i < N1; i++)
 	{
-		for (int j = 0; j < N; j++)
+		for (int j = 0; j < N1; j++)
 			putchar(arr[i][j]);
-		if (i != (N - 1))
+		if (i != (N1 - 1))
 			putchar('\n');
 	}
 }

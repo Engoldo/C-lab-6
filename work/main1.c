@@ -5,8 +5,8 @@
 
 int main()
 {
-	int x = N / 2, y = N / 2, size = 3;
-	char arr[N][N] = { '\0' };
+	int x = N1 / 2, y = N1 / 2, size = 3;
+	char arr[N1][N1] = { '\0' };
 	printf("Enter x, y, size: ");
 	scanf("%d, %d, %d", &x, &y, &size);
 	drawFractal(arr, x, y, size);
