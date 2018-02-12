@@ -6,8 +6,8 @@
 
 int main()
 {
-	uint maxlen = 0;
-	uint maxNum = seqCollatz(&maxlen);
+	unsigned int maxlen = 0;
+	unsigned int maxNum = seqCollatz(&maxlen);
 	printf("Forming number, max length: %u, %u\n", maxNum, maxlen);
 	return 0;
 }
