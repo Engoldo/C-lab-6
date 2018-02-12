@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include "task2.h"
 
-uint seqCollatz(uint *maxlen)
+unsigned int seqCollatz(unsigned int *maxlen)
 {
 	*maxlen = 0;
-	uint currLen = 0, maxNum = 0, i = 0;
+	unsigned int currLen = 0, maxNum = 0, i = 0;
 	for (i = 2; i <= 1000000U; i++)
 	{
-		currLen = collatz((ull)i);
+		currLen = collatz((unsigned long long)i);
 		////putchar('\n');
 		if (*maxlen < currLen)
 		{
@@ -21,22 +21,22 @@ uint seqCollatz(uint *maxlen)
 	return maxNum;
 }
 
-uint collatz(ull num)
+unsigned int collatz(unsigned long long num)
 {
-	static uint countLen = 0;
+	static unsigned int countLen = 0;
 	countLen++;
 	////printf("%llu ", num);
-	if (num == (ull)(1))
+	if (num == (unsigned long long)(1))
 	{
-		uint tmpCount = countLen;
+		unsigned int tmpCount = countLen;
 		countLen = 0;
 		return tmpCount;
 	}
 	else
 	{
-		if (num % (ull)(2))
-			collatz((ull)(3)*num + (ull)(1));
+		if (num % (unsigned long long)(2))
+			collatz((unsigned long long)(3)*num + (unsigned long long)(1));
 		else
-			collatz(num / (ull)(2));
+			collatz(num / (unsigned long long)(2));
 	}
 }

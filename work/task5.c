@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "task5.h"
 
-ull fib1(int N)
+unsigned long long fib1(int N)
 {
 	if (N == 1 || N == 2)
 		return 1;

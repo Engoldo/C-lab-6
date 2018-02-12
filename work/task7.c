@@ -3,23 +3,23 @@
 #include <stdlib.h>
 #include "task7.h"
 
-char arr[N][M];
+char arr[N7][M7];
 
 int isOutBord(int x, int y)
 {
-	int xTrue = (x >= 0) && (x < M);
-	int yTrue = (y >= 0) && (y < N);
+	int xTrue = (x >= 0) && (x < M7);
+	int yTrue = (y >= 0) && (y < N7);
 	int case1 = (x == 0) && yTrue;
-	int case2 = (x == M - 1) && yTrue;
+	int case2 = (x == M7 - 1) && yTrue;
 	int case3 = (y == 0) && xTrue;
-	int case4 = (y == N - 1) && xTrue;
+	int case4 = (y == N7 - 1) && xTrue;
 	return case1 || case2 || case3 || case4;
 }
 
 int isFreePass(int x, int y)
 {
-	int xTrue = (x >= 0) && (x < M);
-	int yTrue = (y >= 0) && (y < N);
+	int xTrue = (x >= 0) && (x < M7);
+	int yTrue = (y >= 0) && (y < N7);
 	int isFree = arr[y][x] == SYM_GATE;
 	return xTrue && yTrue && isFree;
 }
@@ -79,11 +79,11 @@ void place(int x, int y)
 
 void printMatrix(void)
 {
-	for (int i = 0; i < N; i++)
+	for (int i = 0; i < N7; i++)
 	{
-		for (int j = 0; j < M; j++)
+		for (int j = 0; j < M7; j++)
 			putchar(arr[i][j]);
-		if (i != (N - 1))
+		if (i != (N7 - 1))
 			putchar('\n');
 	}
 	puts("\n\n\n");

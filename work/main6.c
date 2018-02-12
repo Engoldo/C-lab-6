@@ -7,7 +7,7 @@
 
 int main()
 {
-	ull res = 0;
+	unsigned long long res = 0;
 	int n = 0;
 	clock_t t1, t2;
 	double sec = 0.0;

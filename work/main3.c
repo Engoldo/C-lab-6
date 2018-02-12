@@ -6,7 +6,7 @@
 
 int main()
 {
-	int num = 0;
+	unsigned int num = 0;
 	char buf[20] = { '\0' };
 	printf("Enter your number: ");
 	scanf("%d", &num);

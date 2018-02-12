@@ -1,6 +1,5 @@
 #define SIZE_6 1000
-typedef unsigned long long ull;
 
-ull fib1(int x);
-ull fibIter(int x, ull *arr);
-ull fib2(int x);
+unsigned long long fib1(int x);
+unsigned long long fibIter(int x, unsigned long long *arr);
+unsigned long long fib2(int x);

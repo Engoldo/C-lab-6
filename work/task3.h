@@ -1,3 +1,2 @@
-typedef unsigned int uint;
 
-char* int2str(char *buf, uint value);
+char* int2str(char *buf, unsigned int value);

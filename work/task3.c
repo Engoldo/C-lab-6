@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "task3.h"
 
-char* int2str(char *buf, uint value)
+char* int2str(char *buf, unsigned int value)
 {
 	static int shift;
 	if ((value / 10) == 0)

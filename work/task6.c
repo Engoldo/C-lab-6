@@ -3,15 +3,7 @@
 #include <stdlib.h>
 #include "task6.h"
 
-ull fib1(int X)
-{
-	if (X == 1 || X == 2)
-		return 1;
-	else
-		return fib1(X - 2) + fib1(X - 1);
-}
-
-ull fibIter(int X, ull *arr)
+unsigned long long fibIter(int X, unsigned long long *arr)
 {
 	if (arr[X] == 0)
 	{
@@ -24,8 +16,8 @@ ull fibIter(int X, ull *arr)
 	return arr[X];
 }
 
-ull fib2(int X)
+unsigned long long fib2(int X)
 {
-	ull arr[SIZE_6] = { 0 };
+	unsigned long long arr[SIZE_6] = { 0 };
 	return fibIter(X, arr);
 }

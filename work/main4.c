@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
 	t1 = clock();
 	//while (clock() < (t1 + CLOCKS_PER_SEC));
-	ll res1 = sumC(arr, arrSize);
+	long long res1 = sumC(arr, arrSize);
 	printf("Res1 = %lld\n", res1);
 	t2 = clock();
 	double sec = (double)(t2 - t1) / CLOCKS_PER_SEC;
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	
 	t1 = clock();
 	//while (clock() < (t1 + CLOCKS_PER_SEC));
-	ll res2 = sumR(arr, arrSize);
+	long long res2 = sumR(arr, arrSize);
 	printf("Res2 = %lld\n", res2);
 	t2 = clock();
 	sec = (double)(t2 - t1) / CLOCKS_PER_SEC;

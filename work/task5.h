@@ -1,3 +1,2 @@
-typedef unsigned long long ull;
 
-ull fib1(int N);
+unsigned long long fib1(int N);
