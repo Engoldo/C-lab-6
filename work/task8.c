@@ -18,11 +18,26 @@ int eval(char *buf)
 	char expr1[SIZE_8] = { '\0' };
 	char expr2[SIZE_8] = { '\0' };
 	char sign = partition(buf, expr1, expr2);
+	int isPar1 = 0, isPar2 = 0, i = 0;
+	while (expr1[i])
+	{
+		if (isPar(expr1[i]))
+			isPar1 = 1;
+		i++;
+	}
+	i = 0;
+	while (expr2[i])
+	{
+		if (isPar(expr2[i]))
+			isPar2 = 1;
+		i++;
+	}
+
 	if ((sign == '\0') && (strlen(expr2) == 0))
 	{
 		return atoi(expr1);
 	}
-	else if ((strlen(expr1) == 1) && (strlen(expr2) == 1))
+	else if (!isPar1 && !isPar2)
 	{
 		int op1 = atoi(expr1), op2 = atoi(expr2), res = 0;
 		switch (sign)
@@ -84,39 +99,39 @@ char partition(char *buf, char *expr1, char *expr2)
 	}
 	int isExtPar = isPar(buf[0]) && isPar(buf[bufLen - 1]);
 
-	if (parNum == 0)
-	{
-		if (bufLen == 1)
-		{
-			*expr1 = buf[0];
-			*expr2 = 0;
-			sign = 0;
-		}
-		else if (bufLen == 3)
-		{
-			*expr1 = buf[0];
-			*expr2 = buf[2];
-			sign = buf[1];
-		}
-		return sign;
-	}
-		
-	if (isExtPar && (parNum == 2))
-	{
-		if (bufLen == 3)
-		{
-			*expr1 = buf[1];
-			*expr2 = 0;
-			sign = 0;
-		}
-		else if (bufLen == 5)
-		{
-			*expr1 = buf[1];
-			*expr2 = buf[3];
-			sign = buf[2];
-		}
-		return sign;
-	}
+	////if (parNum == 0)
+	////{
+	////	if (bufLen == 1)
+	////	{
+	////		*expr1 = buf[0];
+	////		*expr2 = 0;
+	////		sign = 0;
+	////	}
+	////	else if (bufLen == 3)
+	////	{
+	////		*expr1 = buf[0];
+	////		*expr2 = buf[2];
+	////		sign = buf[1];
+	////	}
+	////	return sign;
+	////}
+	////	
+	////if (isExtPar && (parNum == 2))
+	////{
+	////	if (bufLen == 3)
+	////	{
+	////		*expr1 = buf[1];
+	////		*expr2 = 0;
+	////		sign = 0;
+	////	}
+	////	else if (bufLen == 5)
+	////	{
+	////		*expr1 = buf[1];
+	////		*expr2 = buf[3];
+	////		sign = buf[2];
+	////	}
+	////	return sign;
+	////}
 
 	int numOpenPar = 0, numClosePar = 0;
 	int signIdx = 0, isCurrSign = 0;
