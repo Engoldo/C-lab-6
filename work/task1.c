@@ -11,7 +11,7 @@ void drawFractal(char (*arr)[N1], int x, int y, int size)
 	}
 	else
 	{
-		int shift = (int)pow(3.0, (double)(size - 1));
+		int shift = pow(3.0, (double)(size - 1));
 		drawFractal(arr, x, y, size - 1);
 		drawFractal(arr, x, y + shift, size - 1);
 		drawFractal(arr, x, y - shift, size - 1);
