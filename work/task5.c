@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include "task5.h"
 
-unsigned long long fib1(int N)
+unsigned long long fib1(int X)
 {
-	if (N == 1 || N == 2)
+	if (X == 1 || X == 2)
 		return 1;
 	else
-		return fib1(N - 2) + fib1(N - 1);
+		return fib1(X - 2) + fib1(X - 1);
 }

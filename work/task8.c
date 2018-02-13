@@ -8,6 +8,11 @@ int isPar(char sym)
 	return (sym == '(') || (sym == ')');
 }
 
+int isSign(char sym)
+{
+	return (sym == '+') || (sym == '-') || (sym == '*') || (sym == '/');
+}
+
 int eval(char *buf)
 {
 	char expr1[SIZE_8] = { '\0' };
@@ -114,7 +119,8 @@ char partition(char *buf, char *expr1, char *expr2)
 	}
 
 	int numOpenPar = 0, numClosePar = 0;
-	int signIdx = 0;
+	int signIdx = 0, isCurrSign = 0;
+	int case1 = 0, case2 = 0;
 	for (int i = 0; i < bufLen; i++)
 	{
 		if (buf[i] == '(')
@@ -122,14 +128,16 @@ char partition(char *buf, char *expr1, char *expr2)
 		else if (buf[i] == ')')
 			numClosePar++;
 
-		if ((!isExtPar && (numOpenPar == numClosePar) && numOpenPar && numClosePar) || 
-			(isExtPar && (numOpenPar == (numClosePar + 1)) && numOpenPar && numClosePar))
+		isCurrSign = isSign(buf[i]);
+		case1 = isCurrSign && !isExtPar && (numOpenPar == numClosePar);
+		case2 = isCurrSign && isExtPar && (numOpenPar == (numClosePar + 1));
+		if (case1 || case2)
 		{
 			signIdx = i;
 			break;
 		}
 	}
-	signIdx++;
+	////signIdx++;
 
 	sign = buf[signIdx];
 
