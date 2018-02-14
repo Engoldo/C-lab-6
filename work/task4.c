@@ -3,6 +3,21 @@
 #include <stdlib.h>
 #include "task4.h"
 
+int myPow(int x, int y)
+{
+	if (y < 0)
+		return 0;
+	else if (y == 0)
+		return 1;
+	else
+	{
+		int curr = 1;
+		for (int i = 1; i <= y; i++)
+			curr *= x;
+		return curr;
+	}
+}
+
 long long sumC(char *arr, int len)
 {
 	long long sum = 0;

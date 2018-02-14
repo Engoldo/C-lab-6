@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	else
 		exp = atoi(argv[1]);
 
-	int arrSize = (int)pow(2.0, (double)exp);
+	int arrSize = myPow(2, exp);
 	char *arr = (char*)calloc(arrSize, sizeof(char));
 	for (int i = 0; i < arrSize; i++)
 		arr[i] = rand() % 128;
