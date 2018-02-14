@@ -1,5 +1,12 @@
 #include "task4.h"
 
+int powto(int x, int y)
+{
+	if (y == 0)
+		return 1;
+	return x*powto(x, y - 1);
+}
+
 long long sumC(char *arr, int len)
 {
 	int i = 0;

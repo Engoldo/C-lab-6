@@ -1,15 +1,15 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+//#include <math.h>
 #include <time.h>
 #include "task4.h"
 
 int main()
 {
-	int M = 12, i = 0;
+	int M = 4, i = 0;
 	clock_t t1, t2;
-	int size = (int)pow(2.0, M);
+	int size = powto(2,M);
 	srand(time(0));
 	char *arr = (char*)malloc(sizeof(char)*size);
 	while (i < size)
