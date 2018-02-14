@@ -1,9 +1,21 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-#include <math.h>
 #include "task1.h"
+
+int myPow(int x, int y)
+{
+	if (y < 0)
+		return 0;
+	else if (y == 0)
+		return 1;
+	else
+	{
+		int curr = 1;
+		for (int i = 1; i <= y; i++)
+			curr *= x;
+		return curr;
+	}
+}
 
 void drawFractal(char (*arr)[N1], int x, int y, int size)
 {
@@ -13,7 +25,7 @@ void drawFractal(char (*arr)[N1], int x, int y, int size)
 	}
 	else
 	{
-		int shift = pow(3.0, (double)(size - 1));
+		int shift = myPow(3, size - 1);
 		drawFractal(arr, x, y, size - 1);
 		drawFractal(arr, x, y + shift, size - 1);
 		drawFractal(arr, x, y - shift, size - 1);
