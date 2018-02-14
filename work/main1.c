@@ -10,7 +10,7 @@ int main()
 		arr[i] = (char*)calloc(M, sizeof(char));*/
 	char arr[M][M] = { 0 };
 	int x = M / 2, y = M / 2;
-	int size = 2;
+	int size = 3;
 	for ( i = 0; i < M; i++)
 		for ( j = 0; j < M; j++)
 			arr[i][j] = ' ';
