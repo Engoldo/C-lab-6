@@ -33,6 +33,7 @@ unsigned int collatz(unsigned long long num)
 	if (num == 1)
 	{
 		//printf("%lu\n  ", num);
+		count++;
 		return count;
 	}
 		
