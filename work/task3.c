@@ -10,10 +10,7 @@ char* int2str(char *buf, unsigned int value)
 	count++;
 	if ((value / 10) == 0)
 	{
-		for (int k = 0; k <= count; k++)
-		{
-			buf[k] = '\0';
-		}
+		buf[count] = '\0';
 		*buf = (char)((value % 10) + '0');
 		shift = 1;
 		count = 0;
@@ -22,5 +19,6 @@ char* int2str(char *buf, unsigned int value)
 	else
 	{
 		*(int2str(buf, value / 10) + shift++) = (char)((value % 10) + '0');
+		return buf;
 	}
 }

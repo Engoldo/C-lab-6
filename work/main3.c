@@ -7,7 +7,7 @@
 int main()
 {
 	unsigned int num = 0;
-	char buf[20] = { '\0' };
+	char buf[20];
 	printf("Enter your number: ");
 	scanf("%d", &num);
 	int2str(buf, num);
