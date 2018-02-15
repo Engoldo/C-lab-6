@@ -13,6 +13,11 @@ int isSign(char sym)
 	return (sym == '+') || (sym == '-') || (sym == '*') || (sym == '/');
 }
 
+int isNum(char sym)
+{
+	return (sym <= '9') && (sym >= '0');
+}
+
 int eval(char *buf)
 {
 	char expr1[SIZE_8] = { '\0' };
@@ -90,13 +95,31 @@ char partition(char *buf, char *expr1, char *expr2)
 	char sign = 0;
 	char *bufT = buf, *expr1T = expr1, *expr2T = expr2;
 	int parNum = 0, bufLen = 0;
+	int isBufNum = 1;
 	while (*bufT)
 	{
 		if (isPar(*bufT))
 			parNum++;
+		if (!isNum(*bufT))
+			isBufNum = 0;
 		bufT++;
 		bufLen++;
 	}
+
+	if (isBufNum)
+	{
+		bufT = buf;
+		while (*bufT)
+		{
+			*expr1T = *bufT;
+			expr1T++;
+			bufT++;
+		}
+		*expr1T = '\0';
+		expr2[0] = '\0';
+		return '\0';
+	}
+
 	int isExtPar = isPar(buf[0]) && isPar(buf[bufLen - 1]);
 
 	////if (parNum == 0)
