@@ -28,6 +28,10 @@ char partition(char *buf, char *expr1, char *expr2)
 			buf++;
 			k++;
 		}
+		buf++;
+		if (*buf == ')')
+			expr2[k++] = ')';
+
 		expr2[k] = '\0';
 		return oper;
 	}
@@ -80,9 +84,14 @@ int eval(char *buf)
 		switch (oper)
 		{
 			case '+':return eval(expr1) + eval(expr2);
+				break;
 			case '-':return eval(expr1) - eval(expr2);
+				break;
 			case '*':return eval(expr1) * eval(expr2);
+				break;
 			case '/':return eval(expr1) / eval(expr2);
+				break;
+			default: return 0;
 		}
 	}
 }
