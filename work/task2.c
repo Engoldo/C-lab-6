@@ -6,17 +6,32 @@
 unsigned int seqCollatz(unsigned int *maxlen)// -function return the number and record lenght in adress maxlen
 {
 	unsigned int len=0;
-	unsigned int nummax = 0, num=0;
+	unsigned int nummax = 0,num=0;
 	for (num=2;num<=1000000;num++)
 	{
-		if (nummax < (len = collatz(num)))
+		len = collatz(num);
+		if (num == 27)
+			if (len != 112)
+				num = num;
+		if (num == 3)
+			if (len != 8)
+				num = num;
+		if (num == 19)
+			if (len != 21)
+				num = num;
+		if (len > *maxlen)
 		{
 			*maxlen = len;
 			nummax = num;
 		}
+
+		if (num > 600000)
+			len = len;
+
 	}
 	
-	return nummax;// 
+
+return nummax;// 
 }
 
 
@@ -26,13 +41,13 @@ unsigned int collatz(ull num)// -the function retutn  lenght of numbers of colla
 	count++;
 	if(num == 1)
 		return count;
-	else if (num % 2 == 0)
+	if (num % 2 == 0)
 			collatz(num / 2);
-			else
-			collatz(3 * num + 1);
+	else
+		collatz(3 * num + 1);
 
 	
-	count=0;
+	count = 0;
 	
 }
 

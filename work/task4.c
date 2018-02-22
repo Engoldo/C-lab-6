@@ -5,16 +5,18 @@
 long long int sumC(char *arr, int len)// -суммирование массива циклом
 {
 		long long summ = 0;
-		for (len = len - 1;len >= 0;len--)
-			summ += arr[len] - '0';
+		int i = 0;
+		for (i=0;i < len;i++)
+			summ += arr[i] - '0';
+		
 		return summ;
 }
 long long int sumR(char *arr, int len)// -суммирование массива рекурсией
 {
 	
-		if (len == 1)
-			return	*arr - '0';
+	if (len == 0)
+		return 0;
 		else
-			return	sumR((arr + 1), len - 1) + *arr - '0';
+			return	sumR((arr + 1), len - 1) + (*arr - '0');
 	
 }
