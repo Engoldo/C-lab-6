@@ -5,7 +5,8 @@
 #define DELAY 20000
 long long int sumC(char *arr, int len)// -суммирование массива циклом
 {
-	
+	if (arr[len] != '\0')
+		arr[len] = '\0';
 		
 	long long summ = 0;
 		int i = 0;
@@ -16,8 +17,8 @@ long long int sumC(char *arr, int len)// -суммирование массива циклом
 }
 long long int sumR(char *arr, int len)// -суммирование массива рекурсией
 {
-	
-
+	if(arr[len] != '\0')
+		arr[len] = '\0';
 	if (len==1)
 		return *arr-'0';
 	else

@@ -7,6 +7,7 @@ unsigned int seqCollatz(unsigned int *maxlen)// -function return the number and 
 {
 	unsigned int len=0;
 	unsigned int nummax = 0,num=0;
+	*maxlen = 0;// initialization in the place, where will be call
 	for (num=2;num<=1000000;num++)
 	{
 		len = collatz(num);
@@ -29,7 +30,7 @@ return nummax;//
 			if (len != 21)
 				num = num;*/
 
-unsigned int collatz(ull num)// -the function retutn  lenght of numbers of collatz
+unsigned int collatz(ull num)// -the function return  lenght of numbers of collatz
 {
 	static unsigned int count = 0;
 	count++;
