@@ -17,11 +17,12 @@ long long int sumC(char *arr, int len)// -суммирование массива циклом
 }
 long long int sumR(char *arr, int len)// -суммирование массива рекурсией
 {
+	long long summ = 0;
 	if(arr[len] != '\0')
 		arr[len] = '\0';
 	if (len==1)
 		return *arr-'0';
 	else
-			return	sumR(arr+1, len-1)+(*arr-'0')  ;
+			return	summ+=sumR(arr+1, len-1)+(*arr-'0')  ;
 	
 }
