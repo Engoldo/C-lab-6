@@ -10,7 +10,16 @@ unsigned int seqCollatz(unsigned int *maxlen)// -function return the number and 
 	for (num=2;num<=1000000;num++)
 	{
 		len = collatz(num);
-		if (num == 27)
+		
+		if (len > *maxlen)
+		{
+			*maxlen = len;
+			nummax = num;
+		}		
+	}
+return nummax;// 
+}
+/*if (num == 27)
 			if (len != 112)
 				num = num;
 		if (num == 3)
@@ -18,22 +27,7 @@ unsigned int seqCollatz(unsigned int *maxlen)// -function return the number and 
 				num = num;
 		if (num == 19)
 			if (len != 21)
-				num = num;
-		if (len > *maxlen)
-		{
-			*maxlen = len;
-			nummax = num;
-		}
-
-		if (num > 600000)
-			len = len;
-
-	}
-	
-
-return nummax;// 
-}
-
+				num = num;*/
 
 unsigned int collatz(ull num)// -the function retutn  lenght of numbers of collatz
 {
