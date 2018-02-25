@@ -22,6 +22,6 @@ long long int sumR(char *arr, int len)// -суммирование массива рекурсией
 		return *arr;
 	else
 			return	sumR(arr, (len/2)) 
-						+sumR(arr, len-(len/2));
+						+sumR(arr+(len/2), len-(len/2));
 	
 }
