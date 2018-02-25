@@ -5,24 +5,23 @@
 #define DELAY 20000
 long long int sumC(char *arr, int len)// -суммирование массива циклом
 {
-	if (arr[len+1] != '\0')
-		arr[len+1] = '\0';
+	if (arr[len] != '\0')
+		arr[len] = '\0';
 		
 	long long summ = 0;
 		int i = 0;
-		for (i=0;i <=len;i++)
-			summ += arr[i] - '0';
+		for (i=0;i < len;i++)
+			summ += arr[i];
 		
 		return summ;
 }
 long long int sumR(char *arr, int len)// -суммирование массива рекурсией
 {
-	long long summ = 0;
-	if(arr[len+1] != '\0')
-		arr[len+1] = '\0';
-	if (len==0)
-		return *arr-'0';
+
+	if (len==1)
+		return *arr;
 	else
-			return	summ=sumR(arr+1, len-1)+(*arr-'0')  ;
+			return	sumR(arr, (len/2)) 
+						+sumR(arr, len-(len/2));
 	
 }
