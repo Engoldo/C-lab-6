@@ -1,5 +1,6 @@
 typedef unsigned long long ull;
+typedef unsigned int ui;
 
-ull seqCollatz(ull *maxnumber);
-ull collatz(ull i);
-ull schet(ull i, ull count, ull sum);
+ui seqCollatz(ui *maxnumber);
+ui collatz(ull i);
+ui schet(ull i, ui count, ull sum);

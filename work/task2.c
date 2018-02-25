@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include "task2.h"
 
-ull seqCollatz(ull *maxnumber)
+ui seqCollatz(ui *maxnumber)
 {
 	ull i = 1;
-	ull buf = 0;
-	ull number = 0;
+	ui buf = 0;
+	ui number = 0;
 	while (i <= 1000000)
 	{
 		buf = collatz(i);
@@ -20,16 +20,16 @@ ull seqCollatz(ull *maxnumber)
 	return number;
 }
 
-ull collatz(i)
+ui collatz(ull i)
 {
 	ull sum = 0;
-	ull count = 0;
+	ui count = 0;
 	sum = i;
 	count = schet(i, count+1, sum);
 	return count;
 }
 
-ull schet(ull i, ull count, ull sum)
+ui schet(ull i, ui count, ull sum)
 {
 	if (i == 1)
 		return count;

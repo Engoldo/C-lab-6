@@ -5,10 +5,10 @@
 
 int main()
 {
-	ull n = 0;
-	ull maxnumber = 0;
+	ui n = 0;
+	ui maxnumber = 0;
 	n = seqCollatz(&maxnumber);
-	printf("%llu ", n);
-	printf("%llu \n", maxnumber);
+	printf("%d\n", n);
+	printf("%d\n", maxnumber);
 	return 0;
 }
