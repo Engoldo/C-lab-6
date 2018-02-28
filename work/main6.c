@@ -9,6 +9,6 @@ int main()
 	printf("Enter your number: ");
 	scanf("%d", &N);
 	sum = fib2(N);
-	printf("%d-th number of Fibonacci = %lu\n", N, sum);
+	printf("%d-th number of Fibonacci = %llu\n", N, sum);
 	return 0;
 }
