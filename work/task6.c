@@ -9,9 +9,9 @@ unsigned long long fib2(int N)
 	return fib3(0, 1, N);
 }
 
-unsigned long long fib3(unsigned long long num1, unsigned long long num2, int N)
+unsigned long long fib3(unsigned long long num1, unsigned long long num2, int i)
 {
-	if (N == 2)
-		return num1 + num2;
-	return fib3(num2, num1 + num2, N - 1);
+	if (i < 2)
+		return num2;
+	return fib3(num2, num1 + num2, i - 1);
 }
