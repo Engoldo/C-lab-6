@@ -15,12 +15,13 @@ long long sumC(char *arr, int len)
 }
 long long sumR(char *arr, int len)
 {
+	len--;
 	clock_t now;
 	now = clock();
 	while (clock() <= now + CLOCKS_PER_SEC / 100);
 	long long sum = 0;
 	if (len == 0)
 		return arr[len];
-	sum =arr[len] + sumR(arr, len - 1);
+	sum = arr[len] + sumR(arr, len);
 	return sum;
 }

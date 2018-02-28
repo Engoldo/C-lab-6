@@ -28,11 +28,12 @@ int main()
 	summaC = sumC(buf, N);
 	timeC2 = clock();
 	timeR1 = clock();
-	summaR = sumR(buf, N -1);
+	summaR = sumR(buf, N);
 	timeR2 = clock();
 	float timeresultC = (float)(timeC2 - timeC1) / CLOCKS_PER_SEC;
 	float timeresultR = (float)(timeR2 - timeR1) / CLOCKS_PER_SEC;
 	printf("Time with cycle = %f\nTime with recurse =%f\n", timeresultC, timeresultR);
 	printf("Summa with cycle = %lld\nSumma with recurse =%lld\n", summaC, summaR);
+	free(buf);
 	return 0;
 }
