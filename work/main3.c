@@ -7,10 +7,9 @@ int main()
 {
 	uint number = 0;
 	char buf[64] = { 0 };
-	char *p = buf;
 	printf("Enter number: ");
 	scanf("%d", &number);
-	p = int2str(p, number);
+	int2str(buf, number);
 	printf("%s\n", buf);
 	return 0;
 }

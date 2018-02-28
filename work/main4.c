@@ -28,7 +28,7 @@ int main()
 	summaC = sumC(buf, N);
 	timeC2 = clock();
 	timeR1 = clock();
-	summaR = sumR(buf, N - 1);
+	summaR = sumR(buf, N-1);
 	timeR2 = clock();
 	float timeresultC = (float)(timeC2 - timeC1) / CLOCKS_PER_SEC;
 	float timeresultR = (float)(timeR2 - timeR1) / CLOCKS_PER_SEC;

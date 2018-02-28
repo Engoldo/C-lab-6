@@ -2,47 +2,40 @@
 #include <stdlib.h>
 #include "task2.h"
 
-ui seqCollatz(ui *maxnumber)
+ui seqCollatz(ui *maxlen)
 {
-	ull i = 1;
+	ull i = 2;
 	ui buf = 0;
 	ui number = 0;
 	while (i <= 1000000)
 	{
 		buf = collatz(i);
-		if (buf > *maxnumber)
+		if (buf > *maxlen)
 		{
 			number = i;
-			*maxnumber = buf;
+			*maxlen = buf;
 		}
 		i++;
 	}
 	return number;
 }
 
-ui collatz(ull i)
+ui collatz(ull num)
 {
 	ull sum = 0;
 	ui count = 0;
-	sum = i;
-	count = schet(i, count+1, sum);
+	sum = num;
+	count = schet(num, count + 1, sum);
 	return count;
 }
 
+
 ui schet(ull i, ui count, ull sum)
 {
-	if (i == 1)
-		return count;
-	else if (sum == 1)
+	if (sum == 1)
 		return count;
 	else if ((sum % 2) == 0)
-	{
-		sum = sum / 2;
-		count = schet(i, count + 1, sum);
-	}
+		return schet(i, count + 1, sum/2);
 	else if ((sum % 2) == 1)
-	{
-		sum = sum*3 + 1;
-		count = schet(i, count + 1, sum);
-	}
+		return schet(i, count + 1, (sum*3)+1);
 }

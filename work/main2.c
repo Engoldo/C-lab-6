@@ -6,9 +6,9 @@
 int main()
 {
 	ui n = 0;
-	ui maxnumber = 0;
-	n = seqCollatz(&maxnumber);
-	printf("%d\n", n);
-	printf("%d\n", maxnumber);
+	ui maxlen = 0;
+	n = seqCollatz(&maxlen);
+	printf("Max number - %d\n", n);
+	printf("Max len - %d\n", maxlen);
 	return 0;
 }
