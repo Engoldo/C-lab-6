@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "task6.h"
 
+typedef unsigned long long ull;
+
 unsigned long long fib2(int N)
 {
 	ull sum = 0;
