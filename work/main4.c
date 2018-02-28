@@ -18,7 +18,7 @@ int main()
 	int N = 1;
 	for (int i = 0; i < M; i++)
 		N = N * 2;
-	char *buf = (char*)malloc(sizeof(char));
+	char *buf = (char*)malloc(sizeof(char)*N);
 	for (int i = 0; i < N; i++)
 	{
 		buf[i] = rand();
@@ -28,11 +28,11 @@ int main()
 	summaC = sumC(buf, N);
 	timeC2 = clock();
 	timeR1 = clock();
-	summaR = sumR(buf, N-1);
+	summaR = sumR(buf, N -1);
 	timeR2 = clock();
 	float timeresultC = (float)(timeC2 - timeC1) / CLOCKS_PER_SEC;
 	float timeresultR = (float)(timeR2 - timeR1) / CLOCKS_PER_SEC;
 	printf("Time with cycle = %f\nTime with recurse =%f\n", timeresultC, timeresultR);
-
+	printf("Summa with cycle = %lld\nSumma with recurse =%lld\n", summaC, summaR);
 	return 0;
 }
