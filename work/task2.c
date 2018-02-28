@@ -4,6 +4,7 @@
 
 ui seqCollatz(ui *maxlen)
 {
+	*maxlen = 0;
 	ull i = 2;
 	ui buf = 0;
 	ui number = 0;
