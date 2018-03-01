@@ -27,9 +27,11 @@ char partition(char *buf, char *expr1, char *expr2)
 		{
 			expr2[expr2_len++] = *buf;
 			buf++;
-		}
-		expr2[expr2_len] = '\0';
+		}		
 		buf++;
+		if (*buf == ')')
+			expr2[expr2_len++] = ')';
+		expr2[expr2_len] = '\0';
 
 		return sign;
 	}
