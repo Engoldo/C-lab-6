@@ -1,0 +1,1 @@
+void drawFractal(char arr[][100], int x, int y, int size);
